@@ -50,12 +50,12 @@ const routes: Array<RouteConfig> = [
         component: () => import(/* webpackChunkName "Photo" */ '@/components/Photo.vue'),
         beforeEnter(to, from, next) {
           if (store.state.Photos.photos.length) {
-            store.commit('Posts/selectPhoto', +to.params.id);
+            store.commit('Photos/selectPhoto', +to.params.id);
             next();
           } else {
-            store.dispatch('Posts/getPhotos')
+            store.dispatch('Photos/getPhotos')
               .then(() => {
-                store.commit('Posts/selectPhoto', +to.params.id);
+                store.commit('Photos/selectPhoto', +to.params.id);
                 next();
               });
           }

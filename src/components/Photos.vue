@@ -9,11 +9,19 @@
           align-self="start"
           :key="index"
         >
-          <v-img
-            max-height="150"
-            max-width="250"
-            :src="photo.thumbnailUrl"
-          />
+          <router-link
+          :to="{
+            name: 'Photo',
+            params: {
+              id: photo.id
+            }
+          }">
+            <v-img
+              max-height="150"
+              max-width="150"
+              :src="photo.thumbnailUrl"
+            />
+          </router-link>
         </v-col>
       </v-row>
     </v-container>
