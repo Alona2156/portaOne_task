@@ -37,9 +37,10 @@ html, body, #app {
 .app__main {
   width: 100%;
   height: 100%;
+  overflow: auto;
 }
 
 .app__main__title {
-  margin: 10px auto;
+  margin: 10px auto 0;
 }
 </style>
