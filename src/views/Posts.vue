@@ -1,6 +1,6 @@
 <template>
   <div class="posts">
-    <h1>Posts</h1>
+    <h1 class="app__main__title">Posts</h1>
   </div>
 </template>
 

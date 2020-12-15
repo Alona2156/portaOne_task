@@ -1,5 +1,5 @@
 <template>
-  <v-card height="400" width="256" class="mx-auto nav-drawer">
+  <v-card width="256" class="mx-auto nav-drawer">
     <v-navigation-drawer permanent>
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.link">
@@ -53,6 +53,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+  .nav-drawer {
+    height: 100%;
+  }
   .nav-drawer__icon.v-icon {
     margin-right: 32px;
     color: rgba(0, 0, 0, 0.54);
