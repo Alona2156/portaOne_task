@@ -36,8 +36,32 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/photos',
-    name: 'Photos',
-    component: () => import(/* webpackChunkName: "Photos" */ '@/views/Photos.vue'),
+    name: 'mainPhotos',
+    component: () => import(/* webpackChunkName: "PhotosMain" */ '@/views/PhotosMain.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Photos',
+        component: () => import(/* webpackChunkName "Photos" */ '@/components/Photos.vue'),
+      },
+      {
+        path: ':id',
+        name: 'Photo',
+        component: () => import(/* webpackChunkName "Photo" */ '@/components/Photo.vue'),
+        beforeEnter(to, from, next) {
+          if (store.state.Photos.photos.length) {
+            store.commit('Posts/selectPhoto', +to.params.id);
+            next();
+          } else {
+            store.dispatch('Posts/getPhotos')
+              .then(() => {
+                store.commit('Posts/selectPhoto', +to.params.id);
+                next();
+              });
+          }
+        },
+      },
+    ],
   },
   {
     path: '/settings',

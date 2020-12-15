@@ -10,6 +10,19 @@ export interface PostsState {
   selectedPost: Post | undefined;
 }
 
+export interface Photo {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}
+
+export interface PhotosState {
+  photos: Photo[];
+  selectedPhoto: Photo | undefined;
+}
+
 export interface RootState {
   [key: string]: any;
 }
