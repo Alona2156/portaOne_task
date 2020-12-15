@@ -7,6 +7,8 @@ const Photos: Module<PhotosState, RootState> = {
   state: {
     photos: [] as Photo[],
     selectedPhoto: {} as Photo,
+    photosPerPage: 24,
+    currentPage: 1,
   },
   mutations: {
     getPhotos(state, data) {
@@ -17,8 +19,8 @@ const Photos: Module<PhotosState, RootState> = {
     },
   },
   actions: {
-    async getPhotos({ commit }) {
-      const url = `${process.env.VUE_APP_API_URL}/photos`;
+    async getPhotos({ commit, state }) {
+      const url = `${process.env.VUE_APP_API_URL}/photos?_start=${(state.currentPage - 1) * state.photosPerPage}&_limit=${state.photosPerPage}`;
       const response = await axios.get(url);
       commit('getPhotos', response.data);
     },

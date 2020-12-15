@@ -21,6 +21,8 @@ export interface Photo {
 export interface PhotosState {
   photos: Photo[];
   selectedPhoto: Photo | undefined;
+  photosPerPage: number;
+  currentPage: number;
 }
 
 export interface RootState {

@@ -3,8 +3,17 @@
     <h1 class="app__main__title">Photos</h1>
     <v-container>
       <v-row dense>
-        <v-col cols="3" v-for="(photo, index) in photos" align-self="start"
-            :key="index">
+        <v-col
+          cols="2"
+          v-for="(photo, index) in photos"
+          align-self="start"
+          :key="index"
+        >
+          <v-img
+            max-height="150"
+            max-width="250"
+            :src="photo.thumbnailUrl"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -14,9 +23,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import {
-  VContainer,
-  VRow,
-  VCol,
+  VContainer, VRow, VCol, VImg,
 } from 'vuetify/lib';
 import { createNamespacedHelpers } from 'vuex';
 
@@ -27,6 +34,7 @@ export default Vue.extend({
     VContainer,
     VRow,
     VCol,
+    VImg,
   },
   computed: {
     ...mapState(['photos']),
