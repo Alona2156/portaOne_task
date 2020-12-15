@@ -6,6 +6,19 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { createNamespacedHelpers } from 'vuex';
 
-export default Vue.extend({});
+const { mapState, mapActions } = createNamespacedHelpers('Posts');
+
+export default Vue.extend({
+  computed: {
+    ...mapState(['posts']),
+  },
+  methods: {
+    ...mapActions(['getPosts']),
+  },
+  created() {
+    this.getPosts();
+  },
+});
 </script>
