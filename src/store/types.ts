@@ -7,6 +7,7 @@ export interface Post {
 
 export interface PostsState {
   posts: Post[];
+  selectedPost: Post | undefined;
 }
 
 export interface RootState {

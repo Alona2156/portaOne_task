@@ -7,7 +7,12 @@
             :key="index">
           <v-card
             class="posts__card"
-            to="/"
+            :to="{
+              name: 'Post',
+              params: {
+                id: post.id
+              }
+            }"
             hover
           >
             <v-card-title class="headline posts__card-title"> {{ post.title }} </v-card-title>

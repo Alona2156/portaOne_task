@@ -6,10 +6,14 @@ const Posts: Module<PostsState, RootState> = {
   namespaced: true,
   state: {
     posts: [] as Post[],
+    selectedPost: {} as Post,
   },
   mutations: {
     getPosts(state, data) {
       state.posts = data;
+    },
+    selectPost(state, id) {
+      state.selectedPost = state.posts.find((el) => el.id === id);
     },
   },
   actions: {

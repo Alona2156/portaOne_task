@@ -34,6 +34,10 @@ html, body, #app {
   color: #2c3e50;
 }
 
+h1 {
+  cursor: default;
+}
+
 .app__main {
   width: 100%;
   height: 100%;
