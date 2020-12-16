@@ -2,7 +2,8 @@
   <v-container class="px-0" fluid>
     <v-text-field
       :label='$t("Photos per page")'
-      v-model="photos"
+      v-model.number="photos"
+      :rules="rules.quantity"
       class="img-selector__input"
     ></v-text-field>
   </v-container>
@@ -23,6 +24,12 @@ export default Vue.extend({
   data() {
     return {
       photos: 0,
+      rules: {
+        quantity: [
+          (val: number) => (val && val > 0) || 'Is not valid',
+          (val: number) => (typeof val === 'number') || 'Is not valid',
+        ],
+      },
     };
   },
   computed: {
@@ -39,7 +46,9 @@ export default Vue.extend({
       },
     },
     photos(num: number) {
-      this.updatePhotosPerPage(num);
+      if (typeof num === 'number' && num > 0) {
+        this.updatePhotosPerPage(num);
+      }
     },
   },
 });
