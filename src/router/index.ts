@@ -7,6 +7,18 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
+    path: '/',
+    beforeEnter(to, from, next) {
+      const defaultLang = String(navigator.language).substr(0, 2);
+      next({
+        name: 'Posts',
+        params: {
+          lang: defaultLang || i18n.fallbackLocale as string,
+        },
+      });
+    },
+  },
+  {
     path: '/:lang',
     component: () => import(/* webpackChunkName "Main" */ '@/views/Main.vue'),
     beforeEnter(to, from, next) {
@@ -16,7 +28,7 @@ const routes: Array<RouteConfig> = [
       if (!supportedLangs.includes(lang)) {
         const selectedLang = supportedLangs.includes(defaultLang)
           ? defaultLang
-          : 'en';
+          : i18n.fallbackLocale as string;
         return next(selectedLang);
       }
       if (i18n.locale !== lang) {
@@ -28,7 +40,6 @@ const routes: Array<RouteConfig> = [
     children: [
       {
         path: 'posts',
-        name: 'mainPosts',
         component: () => import(/* webpackChunkName "PostsMain" */ '@/views/PostsMain.vue'),
         children: [
           {
@@ -57,7 +68,6 @@ const routes: Array<RouteConfig> = [
       },
       {
         path: 'photos',
-        name: 'mainPhotos',
         component: () => import(/* webpackChunkName: "PhotosMain" */ '@/views/PhotosMain.vue'),
         children: [
           {
