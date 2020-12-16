@@ -1,5 +1,5 @@
 <template>
-  <v-container class="px-0" fluid>
+  <v-container class="pa-5" fluid>
     <v-radio-group v-model="selectedLang" mandatory>
       <v-radio
         v-for="(lang, index) in languages"

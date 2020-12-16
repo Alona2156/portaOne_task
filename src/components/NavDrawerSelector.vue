@@ -1,6 +1,6 @@
 <template>
-  <v-container class="px-0" fluid>
-    <v-sheet class="pa-5">
+  <v-container class="pa-5" fluid>
+    <v-sheet>
       <v-switch
         color="primary"
         v-model="navDrawerType"

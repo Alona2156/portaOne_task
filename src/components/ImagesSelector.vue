@@ -1,5 +1,5 @@
 <template>
-  <v-container class="px-0" fluid>
+  <v-container class="pa-5" fluid>
     <v-text-field
       :label='$t("Photos per page")'
       v-model.number="photos"

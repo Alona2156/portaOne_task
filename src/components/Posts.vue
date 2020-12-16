@@ -86,7 +86,7 @@ export default Vue.extend({
   $rows: 2;
   $p: 16px;
   @include text-overflow($rows);
-  font-size: $fz;
+  font-size: $fz !important;
   line-height: $lh;
   max-height: calc((#{$fz} + #{$lh}) * #{$rows} - #{$p});
   padding-bottom: 0;

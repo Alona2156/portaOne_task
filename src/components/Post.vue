@@ -53,6 +53,7 @@ export default Vue.extend({
   cursor: default;
 }
 .post__card-title {
+  font-size: 1.25rem !important;
   padding-bottom: 5px;
 }
 .post__card-body.v-card__text {
