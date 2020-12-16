@@ -6,7 +6,7 @@
       infinite-scroll-disabled="busy"
       infinite-scroll-distance="5"
     >
-      <h1 class="app__main__title">Photos</h1>
+      <h1 class="app__main__title">{{ $t('Photos') }}</h1>
       <v-container>
         <v-row dense>
           <v-col

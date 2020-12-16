@@ -1,6 +1,6 @@
 <template>
   <div class="posts">
-    <h1 class="app__main__title">Posts</h1>
+    <h1 class="app__main__title">{{ $t("Posts") }}</h1>
     <v-container>
       <v-row dense>
         <v-col cols="3" v-for="(post, index) in posts" align-self="center"

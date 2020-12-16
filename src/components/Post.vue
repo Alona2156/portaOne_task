@@ -1,6 +1,6 @@
 <template>
   <v-container class="post">
-    <h1 class="post__header">Detailed post</h1>
+    <h1 class="post__header">{{ $t("Detailed post") }}</h1>
     <v-row dense>
       <v-col align-self="center">
         <v-card class="post__card">

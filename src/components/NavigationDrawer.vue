@@ -42,9 +42,9 @@ export default Vue.extend({
   data() {
     return {
       items: [
-        { title: 'Posts', icon: 'mdi-post', link: '/posts' },
-        { title: 'Photos', icon: 'mdi-image', link: '/photos' },
-        { title: 'Settings', icon: 'mdi-cogs', link: '/settings' },
+        { title: this.$t('Posts'), icon: 'mdi-post', link: '/posts' },
+        { title: this.$t('Photos'), icon: 'mdi-image', link: '/photos' },
+        { title: this.$t('Settings'), icon: 'mdi-cogs', link: '/settings' },
       ],
       right: null,
     };
