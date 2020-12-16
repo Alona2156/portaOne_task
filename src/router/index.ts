@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import store from '@/store';
+import i18n from '../i18n';
 
 Vue.use(VueRouter);
 
@@ -8,6 +9,22 @@ const routes: Array<RouteConfig> = [
   {
     path: '/:lang',
     component: () => import(/* webpackChunkName "Main" */ '@/views/Main.vue'),
+    beforeEnter(to, from, next) {
+      const { lang } = to.params;
+      const defaultLang = String(navigator.language).substr(0, 2);
+      const supportedLangs = ['en', 'ru', 'ua'];
+      if (!supportedLangs.includes(lang)) {
+        const selectedLang = supportedLangs.includes(defaultLang)
+          ? defaultLang
+          : 'en';
+        return next(selectedLang);
+      }
+      if (i18n.locale !== lang) {
+        i18n.locale = lang;
+      }
+      document.documentElement.setAttribute('lang', lang);
+      return next();
+    },
     children: [
       {
         path: 'posts',
