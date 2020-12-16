@@ -42,9 +42,36 @@ export default Vue.extend({
   data() {
     return {
       items: [
-        { title: this.$t('Posts'), icon: 'mdi-post', link: '/posts' },
-        { title: this.$t('Photos'), icon: 'mdi-image', link: '/photos' },
-        { title: this.$t('Settings'), icon: 'mdi-cogs', link: '/settings' },
+        {
+          title: this.$t('Posts'),
+          icon: 'mdi-post',
+          link: {
+            name: 'Posts',
+            params: {
+              lang: `${this.$i18n.locale}`,
+            },
+          },
+        },
+        {
+          title: this.$t('Photos'),
+          icon: 'mdi-image',
+          link: {
+            name: 'Photos',
+            params: {
+              lang: `${this.$i18n.locale}`,
+            },
+          },
+        },
+        {
+          title: this.$t('Settings'),
+          icon: 'mdi-cogs',
+          link: {
+            name: 'Settings',
+            params: {
+              lang: `${this.$i18n.locale}`,
+            },
+          },
+        },
       ],
       right: null,
     };

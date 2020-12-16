@@ -10,7 +10,8 @@
             :to="{
               name: 'Post',
               params: {
-                id: post.id
+                id: post.id,
+                lang: $i18n.locale
               }
             }"
             hover

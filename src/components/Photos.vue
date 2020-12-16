@@ -20,6 +20,7 @@
                 name: 'Photo',
                 params: {
                   id: photo.id,
+                  lang: $i18n.locale
                 },
               }"
             >
