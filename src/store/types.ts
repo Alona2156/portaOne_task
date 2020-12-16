@@ -25,6 +25,10 @@ export interface PhotosState {
   currentPage: number;
 }
 
+export interface SettingsState {
+  navDrawerType: 'mini' | 'normal';
+}
+
 export interface RootState {
   [key: string]: any;
 }

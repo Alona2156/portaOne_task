@@ -1,6 +1,6 @@
 <template>
   <v-card width="256" class="mx-auto nav-drawer">
-    <v-navigation-drawer permanent>
+    <v-navigation-drawer permanent :expand-on-hover="false">
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.link">
           <v-list-item-icon>
