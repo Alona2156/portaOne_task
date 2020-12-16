@@ -1,6 +1,6 @@
 <template>
-  <v-card width="256" class="mx-auto nav-drawer">
-    <v-navigation-drawer permanent :expand-on-hover="false">
+  <v-card width="auto" class="nav-drawer">
+    <v-navigation-drawer permanent :expand-on-hover="expendOnHover">
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.link">
           <v-list-item-icon>
@@ -30,6 +30,10 @@ import {
   VIcon,
 } from 'vuetify/lib';
 
+import { createNamespacedHelpers } from 'vuex';
+
+const { mapState } = createNamespacedHelpers('Settings');
+
 export default Vue.extend({
   components: {
     VCard,
@@ -47,7 +51,11 @@ export default Vue.extend({
     };
   },
   computed: {
-    items() {
+    ...mapState(['navDrawerType']),
+    expendOnHover(): boolean {
+      return this.navDrawerType === 'mini';
+    },
+    items(): {}[] {
       return [
         {
           title: this.$t('Posts'),

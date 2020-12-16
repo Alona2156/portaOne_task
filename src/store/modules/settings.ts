@@ -7,8 +7,8 @@ const Settings: Module<SettingsState, RootState> = {
     navDrawerType: 'normal',
   },
   mutations: {
-    changeNavDrawerType(state, type: 'mini' | 'normal') {
-      state.navDrawerType = type;
+    changeNavDrawerType(state, type: boolean) {
+      state.navDrawerType = type ? 'mini' : 'normal';
     },
   },
 };

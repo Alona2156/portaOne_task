@@ -3,9 +3,9 @@
     <v-sheet>
       <v-switch
         color="primary"
-        v-model="navDrawerType"
+        v-model="drawerType"
         inset
-        label="Mini navigation drawer"
+        :label="$t('Mini navigation drawer')"
       ></v-switch>
     </v-sheet>
   </v-container>
@@ -14,6 +14,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import { VContainer, VSheet, VSwitch } from 'vuetify/lib';
+import { createNamespacedHelpers } from 'vuex';
+
+const { mapState, mapMutations } = createNamespacedHelpers('Settings');
 
 export default Vue.extend({
   components: {
@@ -23,8 +26,22 @@ export default Vue.extend({
   },
   data() {
     return {
-      navDrawerType: false,
+      drawerType: false,
     };
+  },
+  computed: {
+    ...mapState(['navDrawerType']),
+  },
+  methods: {
+    ...mapMutations(['changeNavDrawerType']),
+  },
+  created() {
+    this.drawerType = this.navDrawerType === 'mini';
+  },
+  watch: {
+    drawerType(val: boolean) {
+      this.changeNavDrawerType(val);
+    },
   },
 });
 </script>
