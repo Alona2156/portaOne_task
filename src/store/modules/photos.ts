@@ -17,6 +17,9 @@ const Photos: Module<PhotosState, RootState> = {
     selectPhoto(state, id) {
       state.selectedPhoto = state.photos.find((el) => el.id === id);
     },
+    updateCurrentPage(state) {
+      state.currentPage += 1;
+    },
   },
   actions: {
     async getPhotos({ commit, state }) {
