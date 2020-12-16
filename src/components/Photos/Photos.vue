@@ -42,6 +42,8 @@ import Vue from 'vue';
 import {
   VContainer, VRow, VCol, VImg,
 } from 'vuetify/lib';
+// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// @ts-ignore
 import infiniteScroll from 'vue-infinite-scroll';
 import { createNamespacedHelpers } from 'vuex';
 

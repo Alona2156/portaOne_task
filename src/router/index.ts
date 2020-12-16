@@ -34,12 +34,12 @@ const routes: Array<RouteConfig> = [
           {
             path: '',
             name: 'Posts',
-            component: () => import(/* webpackChunkName "Posts" */ '@/components/Posts.vue'),
+            component: () => import(/* webpackChunkName "Posts" */ '@/components/Posts/Posts.vue'),
           },
           {
             path: ':id',
             name: 'Post',
-            component: () => import(/* webpackChunkName "Post" */ '@/components/Post.vue'),
+            component: () => import(/* webpackChunkName "Post" */ '@/components/Posts/Post.vue'),
             beforeEnter(to, from, next) {
               if (store.state.Posts.posts.length) {
                 store.commit('Posts/selectPost', +to.params.id);
@@ -63,12 +63,12 @@ const routes: Array<RouteConfig> = [
           {
             path: '',
             name: 'Photos',
-            component: () => import(/* webpackChunkName "Photos" */ '@/components/Photos.vue'),
+            component: () => import(/* webpackChunkName "Photos" */ '@/components/Photos/Photos.vue'),
           },
           {
             path: ':id',
             name: 'Photo',
-            component: () => import(/* webpackChunkName "Photo" */ '@/components/Photo.vue'),
+            component: () => import(/* webpackChunkName "Photo" */ '@/components/Photos/Photo.vue'),
             beforeEnter(to, from, next) {
               if (store.state.Photos.photos.length) {
                 store.commit('Photos/selectPhoto', +to.params.id);

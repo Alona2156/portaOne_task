@@ -9,9 +9,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import LanguageSelector from '@/components/LanguageSelector.vue';
-import ImagesSelector from '@/components/ImagesSelector.vue';
-import NavDrawerSelector from '@/components/NavDrawerSelector.vue';
+import LanguageSelector from '@/components/Settings/LanguageSelector.vue';
+import ImagesSelector from '@/components/Settings/ImagesSelector.vue';
+import NavDrawerSelector from '@/components/Settings/NavDrawerSelector.vue';
 
 export default Vue.extend({
   components: {
