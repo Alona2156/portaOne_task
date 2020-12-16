@@ -27,12 +27,16 @@ export default Vue.extend({
   data() {
     return {
       selectedLang: this.$i18n.locale,
-      languages: [
+    };
+  },
+  computed: {
+    languages() {
+      return [
         { name: `${this.$t('English')}`, locale: 'en' },
         { name: `${this.$t('Russian')}`, locale: 'ru' },
         { name: `${this.$t('Ukrainian')}`, locale: 'ua' },
-      ],
-    };
+      ];
+    },
   },
   watch: {
     selectedLang(lang: string) {
