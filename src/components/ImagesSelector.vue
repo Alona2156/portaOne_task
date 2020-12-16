@@ -58,7 +58,8 @@ export default Vue.extend({
 .img-selector__input {
   max-width: 250px;
   ::v-deep .v-label {
-    margin-left: -24px;
+    transform: translateY(-18px) scale(1);
+    font-size: 0.85rem;
   }
 }
 </style>
