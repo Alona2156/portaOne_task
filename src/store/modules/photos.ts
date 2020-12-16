@@ -20,6 +20,9 @@ const Photos: Module<PhotosState, RootState> = {
     updateCurrentPage(state) {
       state.currentPage += 1;
     },
+    updatePhotosPerPage(state, num: number) {
+      state.photosPerPage = num;
+    },
   },
   actions: {
     async getPhotos({ commit, state }) {

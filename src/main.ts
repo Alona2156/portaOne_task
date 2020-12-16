@@ -7,6 +7,11 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
+Vue.prototype.$vuetify = {
+  rtl: false,
+  breakpoint: false,
+};
+
 new Vue({
   router,
   store,
