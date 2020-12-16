@@ -7,7 +7,9 @@
             <v-icon class="nav-drawer__icon">{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title class="nav-drawer__title">{{ item.title }}</v-list-item-title>
+            <v-list-item-title class="nav-drawer__title">{{
+              item.title
+            }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -41,7 +43,12 @@ export default Vue.extend({
   },
   data() {
     return {
-      items: [
+      right: null,
+    };
+  },
+  computed: {
+    items() {
+      return [
         {
           title: this.$t('Posts'),
           icon: 'mdi-post',
@@ -72,22 +79,21 @@ export default Vue.extend({
             },
           },
         },
-      ],
-      right: null,
-    };
+      ];
+    },
   },
 });
 </script>
 
 <style lang="scss" scoped>
-  .nav-drawer {
-    height: 100%;
-  }
-  .nav-drawer__icon.v-icon {
-    margin-right: 32px;
-    color: rgba(0, 0, 0, 0.54);
-  }
-  .nav-drawer__title {
-    text-align: left;
-  }
+.nav-drawer {
+  height: 100%;
+}
+.nav-drawer__icon.v-icon {
+  margin-right: 32px;
+  color: rgba(0, 0, 0, 0.54);
+}
+.nav-drawer__title {
+  text-align: left;
+}
 </style>
