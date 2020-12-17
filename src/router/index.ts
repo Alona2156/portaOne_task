@@ -102,7 +102,7 @@ const routes: Array<RouteConfig> = [
       {
         path: '404',
         name: 'NotFound',
-        component: () => import(/* webpackChunkName: "Settings" */ '@/views/NotFound.vue'),
+        component: () => import(/* webpackChunkName: "NotFound" */ '@/views/NotFound.vue'),
       },
       {
         path: '*',
